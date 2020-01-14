@@ -8,24 +8,18 @@
   <link rel="dns-prefetch" href="https://yoken-mao.github.io">
   <title>test | Yoken-MaoのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试">
+  <meta name="description" content="next()和hasNext()？ nextLine()和hasNextLine()?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
-<meta property="og:url" content="https://yoken-mao.github.io/2020/01/12/test/index.html">
+<meta property="og:url" content="https://yoken-mao.github.io/2020/01/12/next(),hasNext(),nextLine(),hasNextLine()/index.html">
 <meta property="og:site_name" content="Yoken-MaoのBlog">
-<meta property="og:description" content="测试">
+<meta property="og:description" content="next()和hasNext()？ nextLine()和hasNextLine()?">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/test/head.jpeg">
-<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/test/3.PNG">
-<meta property="og:image" content="https://raw.githubusercontent.com/Yoken-Mao/Yoken-Mao.github.io/master/img/head.jpeg">
-<meta property="og:image" content="https://img-blog.csdn.net/20170226153942698?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3VnYXJfUmFpbmJvdw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="https://raw.githubusercontent.com/Yoken-Mao/Yoken-Mao.github.io/master/img/2.PNG">
 <meta property="article:published_time" content="2020-01-12T09:08:25.000Z">
-<meta property="article:modified_time" content="2020-01-13T11:28:39.019Z">
+<meta property="article:modified_time" content="2020-01-14T11:57:56.166Z">
 <meta property="article:author" content="Yoken-Mao">
-<meta property="article:tag" content="深度学习，Java学习">
+<meta property="article:tag" content="java基础学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yoken-mao.github.io/2020/01/12/test/head.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Yoken-MaoのBlog" type="application/atom+xml">
   
@@ -149,7 +143,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-next(),hasNext(),nextLine(),hasNextLine()" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -161,7 +155,7 @@
   
 
         
-        <a href="/2020/01/12/test/" class="archive-article-date">
+        <a href="/2020/01/12/next(),hasNext(),nextLine(),hasNextLine()/" class="archive-article-date">
   	<time datetime="2020-01-12T09:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-12</time>
 </a>
         
@@ -169,11 +163,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p> <img src="/2020/01/12/test/head.jpeg" alt>  </p>
-<p> <img src="/2020/01/12/test/3.PNG" alt>    </p>
-<p> <img src="https://raw.githubusercontent.com/Yoken-Mao/Yoken-Mao.github.io/master/img/head.jpeg" alt>  </p>
-<p> <img src="https://img-blog.csdn.net/20170226153942698?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3VnYXJfUmFpbmJvdw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt>  </p>
-<p> <img src="https://raw.githubusercontent.com/Yoken-Mao/Yoken-Mao.github.io/master/img/2.PNG" alt></p>
+        <p>next()和hasNext()？ nextLine()和hasNextLine()?  </p>
+<a id="more"></a>
+
+<p>java通过Scanner类来获取用户输入，形式如下：</p>
+<p><code>Scanner scanner = new Scanner(System.in);</code>  </p>
+<p>Scanner类的<strong>next()</strong>和<strong>nextLine()</strong>方法输入字符串，<strong>HasNext()</strong>和<strong>HasNextLine()</strong>判断是否还有输入的数据。 </p>
+<h2 id="next-输入数据"><a href="#next-输入数据" class="headerlink" title="next() 输入数据"></a>next() 输入数据</h2><pre><code class="java"><span class="keyword">import</span> java.util.Scanner; 
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Scanner scan = <span class="keyword">new</span> Scanner(System.in);
+        <span class="comment">// 从键盘接收数据</span>
+
+        <span class="comment">// next方式接收字符串</span>
+        System.out.println(<span class="string">"next方式接收："</span>);
+        <span class="comment">// 判断是否还有输入</span>
+        <span class="keyword">if</span> (scan.hasNext()) {
+            String str1 = scan.next();
+            System.out.println(<span class="string">"输入的数据为："</span> + str1);
+        }
+        scan.close();
+    }
+} </code></pre>
+<h2 id="NextLine-输入数据"><a href="#NextLine-输入数据" class="headerlink" title="NextLine() 输入数据"></a>NextLine() 输入数据</h2><pre><code class="java"><span class="keyword">import</span> java.util.Scanner;
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScannerDemo</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Scanner scan = <span class="keyword">new</span> Scanner(System.in);
+        <span class="comment">// 从键盘接收数据</span>
+
+        <span class="comment">// nextLine方式接收字符串</span>
+        System.out.println(<span class="string">"nextLine方式接收："</span>);
+        <span class="comment">// 判断是否还有输入</span>
+        <span class="keyword">if</span> (scan.hasNextLine()) {
+            String str2 = scan.nextLine();
+            System.out.println(<span class="string">"输入的数据为："</span> + str2);
+        }
+        scan.close();
+    }
+}  </code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="next"><a href="#next" class="headerlink" title="next():"></a>next():</h3><ul>
+<li>读取到有效字符后才结束输入。  </li>
+<li>对输入有效字符前遇到的空白，<strong>next()</strong>方法会自动去掉空白。</li>
+<li>只有输入有效字符后才将其后面输入的空白作为分隔符或结束符。 </li>
+<li><strong>next()</strong>方法不能得到带有空白的字符串。  </li>
+</ul>
+<h3 id="NextLine"><a href="#NextLine" class="headerlink" title="NextLine()"></a>NextLine()</h3><ul>
+<li><strong>NextLine()</strong>方法可以得到输入回车符前的所有字符（包括空白）。</li>
+</ul>
 
       
       <!-- 《添加版权声明 -->
@@ -222,6 +260,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java基础学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -272,7 +321,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://yoken-mao.github.io/2020/01/12/test/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yoken-mao.github.io/2020/01/12/next(),hasNext(),nextLine(),hasNextLine()/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,8 +336,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/01/12/MarkDown%E5%85%A5%E5%9D%91%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MarkDown入坑总结</div>
+    <a href="/2020/01/12/hexo+yilia+valine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo+yilia+评论+转载说明</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -315,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试"><span class="toc-number">1.</span> <span class="toc-text">测试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#next-输入数据"><span class="toc-number">1.</span> <span class="toc-text">next() 输入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NextLine-输入数据"><span class="toc-number">2.</span> <span class="toc-text">NextLine() 输入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#next"><span class="toc-number">3.1.</span> <span class="toc-text">next():</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NextLine"><span class="toc-number">3.2.</span> <span class="toc-text">NextLine()</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -444,6 +493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yilia博客配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java基础学习</a>
               </li>
             
             <div class="clearfix"></div>
