@@ -6,20 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yoken-mao.github.io">
-  <title>Dipole | Yoken-MaoのBlog</title>
+  <title>Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks | Yoken-MaoのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客">
+  <meta name="description" content="这篇是KDD&#96;17中的论文，我之前做对比实验的时候复现过代码。现在想把这篇论文的思想记录下来.论文思想：主要是通过本次的诊断预测下一次的诊断。论文的主要框架是一个BRNN(双向RNN)和Concatenation-based Attention。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dipole">
+<meta property="og:title" content="Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks">
 <meta property="og:url" content="https://yoken-mao.github.io/2020/01/12/Dipole/index.html">
 <meta property="og:site_name" content="Yoken-MaoのBlog">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="这篇是KDD&#96;17中的论文，我之前做对比实验的时候复现过代码。现在想把这篇论文的思想记录下来.论文思想：主要是通过本次的诊断预测下一次的诊断。论文的主要框架是一个BRNN(双向RNN)和Concatenation-based Attention。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/1.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/2.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/3.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/4.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/5.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/6.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/7.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/8.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/9.PNG">
+<meta property="og:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/10.PNG">
 <meta property="article:published_time" content="2020-01-12T08:47:27.000Z">
-<meta property="article:modified_time" content="2020-01-12T12:36:17.370Z">
+<meta property="article:modified_time" content="2020-01-15T08:31:48.744Z">
 <meta property="article:author" content="Yoken-Mao">
-<meta property="article:tag" content="深度学习，Java学习">
+<meta property="article:tag" content="深度学习论文">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yoken-mao.github.io/2020/01/12/Dipole/1.PNG">
   
     <link rel="alternative" href="/atom.xml" title="Yoken-MaoのBlog" type="application/atom+xml">
   
@@ -150,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Dipole
+      Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks
     </h1>
   
 
@@ -163,7 +174,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>这篇是<strong>KDD`17</strong>中的论文，我之前做对比实验的时候复现过代码。现在想把这篇论文的思想记录下来.论文思想：主要是通过本次的诊断预测下一次的诊断。论文的主要框架是一个<strong>BRNN(双向RNN)</strong>和<strong>Concatenation-based Attention</strong>。  </p>
+<a id="more"></a>  
+
+<h2 id="论文链接"><a href="#论文链接" class="headerlink" title="论文链接"></a>论文链接</h2><p><a href="https://arxiv.org/pdf/1706.05764.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1706.05764.pdf</a> </p>
+<h2 id="论文代码"><a href="#论文代码" class="headerlink" title="论文代码"></a>论文代码</h2><p>论文中没有开源他们的代码，但是我在github上找到有人对它的复现（PS:不一定完全正确，仅供参考）。  </p>
+<p>代码链接：<a href="https://github.com/Yuyoo/Dipole" target="_blank" rel="noopener">https://github.com/Yuyoo/Dipole</a>   </p>
+<p> 看代码上的注释应该是东南大学的某位研究僧复现的，里面有pytorch版本和TensorFlow版的，真是相当详细了。（PS：我自己复现的跑出来效果不好，以为自己复现错了。看到这位博主复现的代码与自己复现的一样，就知道了这个模型可能不太适合我们的那个数据。在这里十分感谢这位博主分享自己的代码）。   </p>
+<h2 id="论文框架"><a href="#论文框架" class="headerlink" title="论文框架"></a>论文框架</h2><p> <img src="/2020/01/12/Dipole/1.PNG" alt></p>
+<h3 id="1，Visit-Embedding"><a href="#1，Visit-Embedding" class="headerlink" title="1，Visit Embedding"></a>1，Visit Embedding</h3><p> <img src="/2020/01/12/Dipole/2.PNG" alt>  </p>
+<h3 id="2-Bidirectional-Recurrent-Neural-Networks"><a href="#2-Bidirectional-Recurrent-Neural-Networks" class="headerlink" title="2, Bidirectional Recurrent Neural Networks"></a>2, Bidirectional Recurrent Neural Networks</h3><p>经过双向RNN出来的数据，也是双向的。<br>1，正向   <img src="/2020/01/12/Dipole/3.PNG" alt>     </p>
+<p>2，反向   <img src="/2020/01/12/Dipole/4.PNG" alt>   </p>
+<p>3，最后拼接在一起  <img src="/2020/01/12/Dipole/5.PNG" alt>，此时要注意输出的维度是原来的两倍。  </p>
+<h3 id="3，Attention"><a href="#3，Attention" class="headerlink" title="3，Attention"></a>3，Attention</h3><p>论文中提出了三种Attention方式。  </p>
+<ul>
+<li><strong>Location-based Attention</strong><br><img src="/2020/01/12/Dipole/6.PNG" alt><br>这个Attention没有结合ht,它用的是之前的信息hi.</li>
+<li><strong>General Attention</strong><br><img src="/2020/01/12/Dipole/7.PNG" alt><br>这个Attention结合ht了,注意hi和ht的范围.这边算完之后还要经过上面的公式3和公式4计算ct.   </li>
+<li><strong>Concatenation-based Attention</strong><br><img src="/2020/01/12/Dipole/8.PNG" alt><br>这边算完之后还要经过上面的公式3和公式4计算ct.     </li>
+</ul>
+<h3 id="Diagnosis-Prediction"><a href="#Diagnosis-Prediction" class="headerlink" title="Diagnosis Prediction"></a>Diagnosis Prediction</h3><p>   <img src="/2020/01/12/Dipole/9.PNG" alt>     </p>
+<h3 id="复现总结"><a href="#复现总结" class="headerlink" title="复现总结"></a>复现总结</h3><p>我用这篇论文作对比实验，三种attention方法都试了，结果相差无几。论文中也显示了  </p>
+<p>   <img src="/2020/01/12/Dipole/10.PNG" alt>  </p>
+<p>在复现的时候要特别注意tensor维度的转换。</p>
+
       
       <!-- 《添加版权声明 -->
     
@@ -183,13 +216,13 @@
     2020-01-12
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-01-12
+    2020-01-15
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yoken-mao.github.io/2020/01/12/Dipole/" title="Dipole" target="_blank">Dipole</a>
+    <a href="https://yoken-mao.github.io/2020/01/12/Dipole/" title="Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks" target="_blank">Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yoken-mao.github.io/2020/01/12/Dipole/" title="Dipole" target="_blank">https://yoken-mao.github.io/2020/01/12/Dipole/</a>
+    <a href="https://yoken-mao.github.io/2020/01/12/Dipole/" title="Dipole:Diagnosis Prediction in Healthcare via  Attention-based Bidirectional Recurrent Neural Networks" target="_blank">https://yoken-mao.github.io/2020/01/12/Dipole/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -234,6 +267,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度学习论文</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -336,7 +380,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#论文链接"><span class="toc-number">1.</span> <span class="toc-text">论文链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#论文代码"><span class="toc-number">2.</span> <span class="toc-text">论文代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#论文框架"><span class="toc-number">3.</span> <span class="toc-text">论文框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1，Visit-Embedding"><span class="toc-number">3.1.</span> <span class="toc-text">1，Visit Embedding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Bidirectional-Recurrent-Neural-Networks"><span class="toc-number">3.2.</span> <span class="toc-text">2, Bidirectional Recurrent Neural Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3，Attention"><span class="toc-number">3.3.</span> <span class="toc-text">3，Attention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Diagnosis-Prediction"><span class="toc-number">3.4.</span> <span class="toc-text">Diagnosis Prediction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复现总结"><span class="toc-number">3.5.</span> <span class="toc-text">复现总结</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -473,6 +517,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">java基础学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">深度学习论文</a>
               </li>
             
             <div class="clearfix"></div>

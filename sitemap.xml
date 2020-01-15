@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yoken-mao.github.io/2020/01/12/Dipole/</loc>
+    
+    <lastmod>2020-01-15T08:31:48.744Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yoken-mao.github.io/2020/01/12/next(),hasNext(),nextLine(),hasNextLine()/</loc>
     
-    <lastmod>2020-01-14T11:57:56.166Z</lastmod>
+    <lastmod>2020-01-14T12:02:14.430Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://yoken-mao.github.io/2020/01/12/hexo+yilia+valine/</loc>
     
     <lastmod>2020-01-14T07:00:51.020Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yoken-mao.github.io/2020/01/12/Dipole/</loc>
-    
-    <lastmod>2020-01-12T12:36:17.370Z</lastmod>
     
   </url>
   
